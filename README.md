@@ -1,78 +1,116 @@
-🚀 UC2: Implement Logging with SLF4J in Spring Boot
+🚀 UC3: Dependency Injection with Employee and Department Beans
 
-This guide helps you add logging to your Spring Boot application using SLF4J (Simple Logging Facade for Java). Logging is essential for tracking application behavior and debugging issues.
-📌 Project Details
+✅ This use case demonstrates Dependency Injection in a Spring Boot application using @Component and @Autowired.
 
-Project Name    ➡️  spring-basics
 
-Group ID        ➡️  com.springconcepts
+📌 Project Overview
 
-Artifact ID	    ➡️  spring-basics
+This project defines:
 
-Package Name    ➡️  com.springconcepts.basics
+EmployeeBean ➝ Represents an Employee with a name and a department.
 
-Java Version    ➡️  17 or 21
+DepartmentBean ➝ Represents the Department of an Employee.
 
-Build Tool      ➡️  Maven
+EmployeeController ➝ REST API to add and retrieve employee details.
 
-Dependencies	Spring Web, Spring Boot DevTools
+Both beans are managed by Spring Container, and dependency injection is achieved using @Autowired.
 
-✅ Steps to Set Up the Project
+⚙ Technologies Used
 
-1️⃣ Create a Spring Boot Project using Spring Initializr.
+🔹 Spring Boot
 
-2️⃣ Import the project into IntelliJ IDEA.
+🔹 Spring Core
 
-3️⃣ Ensure required dependencies are present in pom.xml.
+🔹 Maven
 
-4️⃣ Run the application using:
+🔹 REST APIs
 
-mvn spring-boot:run
+📂 Project Structure
 
-5️⃣ Verify that the application starts successfully.
+📦 com.springcoreconcepts.springbasics
 
-✅ How to Run the Application?
+ ┣ 📂 bean
 
-Open the terminal in IntelliJ IDEA and run:
+ ┃ ┣ 📜 EmployeeBean.java
 
-mvn spring-boot:run
+ ┃ ┣ 📜 DepartmentBean.java
 
-If using IntelliJ, you can also run SpringbasicsApplication.java directly.
+ ┣ 📂 controller
 
-=======
-Project Name	➡️  spring-basics
+ ┃ ┣ 📜 EmployeeController.java
 
-Group ID		➡️  com.springconcepts
+ ┣ 📜 SpringBasicsApplication.java
 
-Artifact ID		➡️  spring-basics
 
-Java Version	➡️  17 or 21
+🏗 Implementation Details
 
-Build Tool	Maven
+🔹 EmployeeBean.java
 
-Dependencies	Spring Web, SLF4J (Logging)
+✔ Annotated with @Component
 
-✅ Steps to Implement Logging
+✔ Uses @Autowired to inject DepartmentBean
 
-1️⃣ Create a new branch for UC2 to keep changes separate.
 
-2️⃣ Ensure SLF4J is included in the project dependencies.
+🔹 DepartmentBean.java
 
-3️⃣ Create a controller to handle API requests and log messages at different levels (INFO, DEBUG, WARN, ERROR).
+✔ Defines the Department Name
 
-4️⃣ Customize logging levels in the application properties file to control log verbosity.
+✔ Annotated with @Component
 
-5️⃣ Run and test the application using a browser, Postman, or cURL.
 
-6️⃣ Check the logs in the terminal or the generated log file.
+🔹 EmployeeController.java
 
-7️⃣ Commit and push changes to the UC2 branch.
+✔ REST Controller to handle POST and GET requests
 
-8️⃣ Create a pull request and merge into the main branch after successful testing.
+🌐 Testing the APIs
 
-🎯 How to Test the Logging API?
+🛠 Using Postman or Browser
 
-Start the application and access the endpoint:
+📌 1. Add Employee Details (POST Request)
 
-http://localhost:8080/api/log
+URL: http://localhost:8080/employee/add
 
+Method: POST
+
+Body (JSON):
+
+{
+  "empName": "Raj",
+  "department": {
+    "deptName": "IT"
+  }
+}
+
+Response:
+
+✅ Employee details added successfully!
+
+
+📌 2. Retrieve Employee Details (GET Request)
+
+URL: http://localhost:8080/employee/details
+
+Method: GET
+
+Response:
+{
+  "empName": "Raj",
+  "department": {
+    "deptName": "IT"
+  }
+}
+
+🏆 Key Takeaways
+
+✅ Spring Boot manages Employee and Department objects
+
+✅ Dependency Injection using @Autowired
+
+✅ REST API Implementation with @RestController
+
+
+🔹 Author: Deepanshu Malviya
+
+🔹 Date: February 2025
+
+🔥 Happy Coding! 🚀
